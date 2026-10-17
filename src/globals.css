@@ -30,6 +30,11 @@
   --input: #cdcdcd;
   --ring: #fe5f21;
   --koda-blue: #6bc7f2; /* announcement bar / secondary accent */
+  /* Alumni card accents (components/landing/alumni-carousel) */
+  --alumni-pink: #f5a3c7;
+  --alumni-yellow: #f5d96b;
+  --alumni-green: #9be39b;
+  --alumni-blue: #8fc4f5;
   --success: #35d49c;
   --warning: #fcbb40;
   --info: #1d64ff;
@@ -60,6 +65,12 @@
   --input: #323232;
   --ring: #fe5f21;
   --koda-blue: #6bc7f2; /* announcement bar / secondary accent */
+  /* Alumni card accents (components/landing/alumni-carousel). Pastels read on
+     both themes, so the values are identical light/dark by design. */
+  --alumni-pink: #f5a3c7;
+  --alumni-yellow: #f5d96b;
+  --alumni-green: #9be39b;
+  --alumni-blue: #8fc4f5;
   --success: #35d49c;
   --warning: #fcbb40;
   --info: #1d64ff;

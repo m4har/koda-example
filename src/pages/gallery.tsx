@@ -8,6 +8,10 @@ import { Hero } from "@/components/landing/hero";
 import { StatCounter } from "@/components/landing/stat-counter";
 import { FeatureGrid } from "@/components/landing/feature-grid";
 import { Testimonial } from "@/components/landing/testimonial";
+import { AlumniCarousel } from "@/components/landing/alumni-carousel";
+import { NextDirimuBand } from "@/components/landing/next-dirimu-band";
+import { CareerPillars } from "@/components/landing/career-pillars";
+import { CurriculumAccordion } from "@/components/landing/curriculum-accordion";
 import { CtaBand } from "@/components/landing/cta-band";
 import { Footer } from "@/components/landing/footer";
 import { SectionFrame } from "@/components/ui/section-frame";
@@ -30,7 +34,7 @@ import { DataTable } from "@/components/dashboard/data-table";
 import { AuthCard } from "@/components/auth/auth-card";
 import { Accordion } from "@/components/accordion";
 import { Modal } from "@/components/modal";
-import { students, activities, alumni, faq, stats, BATCHES, KELAS, statusVariant } from "@/lib/data";
+import { students, activities, alumni, faq, stats, BATCHES, KELAS, statusVariant, alumniStories, careerPillars, curriculumModules } from "@/lib/data";
 
 function Frame({ id, name, children }: { id: string; name: string; children: React.ReactNode }) {
   return (
@@ -279,6 +283,30 @@ function GalleryPage() {
 
           <Frame id="testimonial" name="testimonial">
             <Testimonial items={alumni.slice(0, 3)} />
+          </Frame>
+
+          <Frame id="alumni-carousel" name="alumni-carousel">
+            <AlumniCarousel items={alumniStories} storyHref="#" />
+          </Frame>
+
+          <Frame id="next-dirimu-band" name="next-dirimu-band">
+            <NextDirimuBand href="#" label="Next Dirimu" />
+          </Frame>
+
+          <Frame id="career-pillars" name="career-pillars">
+            <CareerPillars
+              eyebrow="Kenapa memilih program ini"
+              heading="Empat Pilar Pendampingan Karier"
+              pillars={careerPillars}
+            />
+          </Frame>
+
+          <Frame id="curriculum-accordion" name="curriculum-accordion">
+            <CurriculumAccordion
+              eyebrow="Kurikulum"
+              heading="Materi yang Disusun Mengikuti Kebutuhan Industri"
+              modules={curriculumModules}
+            />
           </Frame>
 
           <Frame id="accordion" name="accordion">

@@ -8,6 +8,10 @@ import { Hero } from "@/components/landing/hero";
 import { StatCounter } from "@/components/landing/stat-counter";
 import { FeatureGrid } from "@/components/landing/feature-grid";
 import { JadwalTabs } from "@/components/landing/jadwal-tabs";
+import { AlumniCarousel } from "@/components/landing/alumni-carousel";
+import { NextDirimuBand } from "@/components/landing/next-dirimu-band";
+import { CareerPillars } from "@/components/landing/career-pillars";
+import { CurriculumAccordion } from "@/components/landing/curriculum-accordion";
 import { CtaBand } from "@/components/landing/cta-band";
 import { Footer } from "@/components/landing/footer";
 import { SectionFrame } from "@/components/ui/section-frame";
@@ -16,12 +20,13 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Accordion } from "@/components/accordion";
-import { langkah, faq, stats, fasilitas, fokusFeatures, jadwalTabs, timelineMonths } from "@/lib/data";
+import { langkah, faq, stats, fasilitas, fokusFeatures, jadwalTabs, timelineMonths, alumniStories, careerPillars, curriculumModules } from "@/lib/data";
 
 const WA_LINK =
   "https://api.whatsapp.com/send/?phone=6281234567890&text=Halo%20tim%20Koda%20Example%2C%20saya%20ingin%20tanya%20program%20bootcamp";
 
 const navItems = [
+  { label: "Alumni", href: "#alumni" },
   { label: "Fasilitas", href: "#fasilitas" },
   { label: "Fokus", href: "#fokus" },
   { label: "Jadwal", href: "#jadwal" },
@@ -90,6 +95,21 @@ function LandingPage() {
           </section>
 
           <SectionFrame
+            id="alumni"
+            eyebrow="Cerita Alumni"
+            heading="Lulusan yang Sudah Membuktikannya"
+            description="Sepuluh cerita dari angkatan berbeda — dari mulai belajar nol sampai bekerja di industri."
+          >
+            <AlumniCarousel items={alumniStories} storyHref="/register" />
+          </SectionFrame>
+
+          <section className="px-4 pb-4 sm:px-8 lg:px-16">
+            <div className="mx-auto max-w-6xl">
+              <NextDirimuBand href="/register" label="Next Dirimu" />
+            </div>
+          </section>
+
+          <SectionFrame
             id="fasilitas"
             eyebrow="01 / Fasilitas"
             heading="Kamu fokus belajar, sisanya kami siapkan."
@@ -128,6 +148,17 @@ function LandingPage() {
             />
           </SectionFrame>
 
+          <section className="border-t border-border px-4 py-16 sm:px-8 lg:px-16">
+            <div className="mx-auto max-w-6xl">
+              <CareerPillars
+                id="kenapa"
+                eyebrow="Kenapa memilih program ini"
+                heading="Empat Pilar Pendampingan Karier"
+                pillars={careerPillars}
+              />
+            </div>
+          </section>
+
           <SectionFrame
             id="jadwal"
             eyebrow="03 / Jadwal"
@@ -136,6 +167,17 @@ function LandingPage() {
           >
             <JadwalTabs tabs={jadwalTabs} />
           </SectionFrame>
+
+          <section className="border-t border-border px-4 py-16 sm:px-8 lg:px-16">
+            <div className="mx-auto max-w-6xl">
+              <CurriculumAccordion
+                id="kurikulum"
+                eyebrow="Kurikulum"
+                heading="Materi yang Disusun Mengikuti Kebutuhan Industri"
+                modules={curriculumModules}
+              />
+            </div>
+          </section>
 
           <SectionFrame
             id="pendaftaran"

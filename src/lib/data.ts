@@ -237,3 +237,50 @@ export const activities = [
   { id: "a4", title: "Sesi mock interview Batch 4 dimulai", description: "Ruang zoom utama", timestamp: "Kemarin", tone: "default" as const },
   { id: "a5", title: "Lab cluster Cibubur perawatan", description: "Downtime 2 jam", timestamp: "2 hari lalu", tone: "destructive" as const },
 ];
+
+// --- Landing: alumni carousel (10 slide fiktif, 4 tone warna) ---
+export type AlumniTone = "pink" | "yellow" | "green" | "blue";
+
+export interface AlumniStory {
+  name: string;
+  year: string;
+  role: string;
+  tone: AlumniTone;
+}
+
+export const alumniStories: AlumniStory[] = [
+  { name: "Kanaya Prameswari", year: "2024", role: "DevOps Engineer · Fintech", tone: "pink" },
+  { name: "Rafi Anandra", year: "2024", role: "Backend Engineer · Logistik", tone: "yellow" },
+  { name: "Sekar Ayu Larasati", year: "2025", role: "Platform Engineer · SaaS", tone: "green" },
+  { name: "Bramantyo Wibowo", year: "2025", role: "Cloud Engineer · Perbankan", tone: "blue" },
+  { name: "Tania Maharani", year: "2024", role: "SRE · E-commerce", tone: "pink" },
+  { name: "Gilang Saputra", year: "2025", role: "Infrastructure Engineer · Healthtech", tone: "yellow" },
+  { name: "Aurora Nindya", year: "2023", role: "Backend Engineer · Marketplace", tone: "green" },
+  { name: "Eka Nugraha", year: "2025", role: "DevOps Engineer · Telco", tone: "blue" },
+  { name: "Priscilla Handayani", year: "2024", role: "Data Engineer · Ritel", tone: "pink" },
+  { name: "Yudhistira Kurnia", year: "2023", role: "Solutions Architect · Konsultan IT", tone: "blue" },
+];
+
+// --- Landing: career pillars (4 pilar pendampingan karier) ---
+export const careerPillars = [
+  { title: "1-on-1 Mentoring", description: "Tiap peserta punya mentor tetap. Sesi privat tiap pekan untuk membedah progres, menyelesaikan kendala, dan menyusun target berikutnya." },
+  { title: "Job Readiness", description: "Dari penyusunan CV, portofolio GitHub, sampai simulasi wawancara teknis — dilatih berulang sampai kamu lancar bercerita soal proyek sendiri." },
+  { title: "Recruiter POV & Personal Branding", description: "Belajar membaca lowongan seperti rekruter: skill mana yang disaring, bagaimana menonjolkan pengalaman, dan cara membangun citra profesional online." },
+  { title: "Interview & Test Support", description: "Pendampingan menjelang tes teknis dan live coding, termasuk review soal, latihan studi kasus, dan debrief setelah tiap wawancara." },
+];
+
+// --- Landing: kurikulum (6 modul, accordion) ---
+export const curriculumModules: {
+  nomor: string;
+  judul: string;
+  materiCount: number;
+  isi: string;
+}[] = [
+  { nomor: "01", judul: "Dasar Pemrograman Web", materiCount: 6, isi: "HTML semantik, CSS modern, dasar JavaScript, logika pemrograman, Git, dan publikasi halaman pertama ke internet." },
+  { nomor: "02", judul: "Front End Development", materiCount: 4, isi: "Komponen React, state management, konsumsi REST API, dan penyusunan antarmuka responsif yang rapi." },
+  { nomor: "03", judul: "Back End Development", materiCount: 8, isi: "Perancangan API, pemodelan database, autentikasi, pengujian otomatis, hingga optimasi query untuk beban nyata." },
+  { nomor: "04", judul: "DevOps & Deployment", materiCount: 2, isi: "Container dengan Docker, pipeline CI/CD, dan strategi rilis supaya aplikasi bisa menaikkan versi tanpa downtime." },
+  { nomor: "05", judul: "Capstone Project", materiCount: 1, isi: "Satu proyek akhir end-to-end yang dirancang, dibangun, dan dideploy sendiri sebagai bukti kemampuan." },
+  { nomor: "06", judul: "Persiapan Karier", materiCount: 1, isi: "Penyusunan CV dan portofolio, latihan menjawab pertanyaan rekruter, serta strategi melamar yang terarah." },
+];
+

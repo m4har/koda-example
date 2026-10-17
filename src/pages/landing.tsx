@@ -1,21 +1,22 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle, ArrowRight, Terminal, GitPullRequest, Server, Layers, Briefcase, Users } from "lucide-react";
+import { MessageCircle, ArrowRight, Terminal, GitPullRequest, Server, Layers, Briefcase, Users, Image as ImageIcon } from "lucide-react";
 import { AnnouncementBar } from "@/components/landing/announcement-bar";
 import { RuleRail } from "@/components/landing/rule-rail";
 import { Navbar } from "@/components/landing/navbar";
 import { Hero } from "@/components/landing/hero";
 import { StatCounter } from "@/components/landing/stat-counter";
 import { FeatureGrid } from "@/components/landing/feature-grid";
+import { JadwalTabs } from "@/components/landing/jadwal-tabs";
 import { CtaBand } from "@/components/landing/cta-band";
 import { Footer } from "@/components/landing/footer";
 import { SectionFrame } from "@/components/ui/section-frame";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Accordion } from "@/components/accordion";
-import { batchCards, langkah, faq, stats, fasilitas, fokusFeatures } from "@/lib/data";
+import { langkah, faq, stats, fasilitas, fokusFeatures, jadwalTabs, timelineMonths } from "@/lib/data";
 
 const WA_LINK =
   "https://api.whatsapp.com/send/?phone=6281234567890&text=Halo%20tim%20Koda%20Example%2C%20saya%20ingin%20tanya%20program%20bootcamp";
@@ -103,6 +104,16 @@ function LandingPage() {
                   <p className="max-w-md text-sm text-muted-foreground">{item.desc}</p>
                 </div>
               ))}
+              {/* Slot foto ruang kelas/asrama — ganti <img> saat aset siap. */}
+              {["ruang belajar", "asrama"].map((photo) => (
+                <div
+                  key={photo}
+                  className="flex aspect-[16/9] items-center justify-center gap-3 bg-muted/30 text-muted-foreground sm:aspect-auto"
+                >
+                  <ImageIcon aria-hidden className="size-5" />
+                  <span className="font-mono text-[10px] uppercase tracking-[0.1em]">Foto · {photo}</span>
+                </div>
+              ))}
             </div>
           </SectionFrame>
 
@@ -123,38 +134,7 @@ function LandingPage() {
             heading="Jadwal Bootcamp Terdekat"
             description="Pilih batch yang paling pas. Semua batch dapat akses lab, mentoring, dan pendampingan karier."
           >
-            <div className="grid gap-px border border-border bg-border md:grid-cols-3">
-              {batchCards.map((batch) => (
-                <Card key={batch.nama} className="rounded-none border-0">
-                  <CardHeader className="flex-row items-start justify-between space-y-0">
-                    <div className="flex flex-col gap-2">
-                      <CardTitle className="text-[32px] font-medium leading-[1.1]">{batch.nama}</CardTitle>
-                      <CardDescription>{batch.mode}</CardDescription>
-                    </div>
-                    <Badge variant={batch.slotTone}>{batch.slot}</Badge>
-                  </CardHeader>
-                  <CardContent className="flex flex-col gap-3 text-sm">
-                    <div className="flex justify-between">
-                      <Label>Mulai</Label>
-                      <span>{batch.mulai}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <Label>Selesai</Label>
-                      <span>{batch.selesai}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <Label>Batas daftar</Label>
-                      <span>{batch.batasDaftar}</span>
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button asChild variant="outline" className="w-full">
-                      <Link to="/register">Daftar batch ini</Link>
-                    </Button>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
+            <JadwalTabs tabs={jadwalTabs} />
           </SectionFrame>
 
           <SectionFrame
@@ -179,12 +159,32 @@ function LandingPage() {
             heading="Pertanyaan yang Sering Diajukan"
             description="Belum ketemu jawabannya? Chat tim kami lewat WhatsApp."
           >
-            <Accordion
-              items={faq.map((item) => ({
-                title: item.q,
-                content: <p className="leading-relaxed">{item.a}</p>,
-              }))}
-            />
+            <div className="grid gap-px border border-border bg-border lg:grid-cols-[2fr_1fr] lg:items-start lg:bg-transparent lg:border-0 lg:gap-8">
+              <Accordion
+                items={faq.map((item) => ({
+                  title: item.q,
+                  content: <p className="leading-relaxed">{item.a}</p>,
+                }))}
+              />
+              <Card className="rounded-none border-border bg-background">
+                <CardHeader>
+                  <Label>Butuh arahan program?</Label>
+                  <CardTitle className="text-2xl font-medium leading-tight">
+                    Bingung pilih batch atau jalur belajar?
+                  </CardTitle>
+                  <CardDescription>
+                    Tim admission kami bantu cocokkan program dengan latar belakang dan jadwalmu.
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter>
+                  <Button asChild className="w-full">
+                    <a href={WA_LINK} target="_blank" rel="noreferrer">
+                      <MessageCircle aria-hidden /> Chat Tim Koda
+                    </a>
+                  </Button>
+                </CardFooter>
+              </Card>
+            </div>
           </SectionFrame>
 
           <CtaBand
@@ -236,7 +236,12 @@ function LandingPage() {
               ],
             },
           ]}
-          newsletter={{ heading: "Info batch & deadline", placeholder: "email kamu", buttonLabel: "Langganan" }}
+          newsletter={{
+            eyebrow: "Dapatkan info terbaru",
+            placeholder: "mail@gmail.com",
+            buttonLabel: "Langganan",
+            timeline: { months: timelineMonths, text: "Dalam 1 tahun: 100+ alumni di perusahaan ternama" },
+          }}
         />
       </div>
     </div>

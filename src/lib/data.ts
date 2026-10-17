@@ -78,6 +78,46 @@ export const batchCards = [
   },
 ];
 
+// --- Landing: jadwal tabs (Bootcamp / Golang / Java & .NET) ---
+export interface JadwalBatch {
+  nama: string;
+  deskripsi: string;
+  tanggal: string;
+  lokasi: string;
+  jadwal: string;
+  batasDaftar: string;
+}
+
+export const jadwalTabs: { id: string; label: string; batches: JadwalBatch[] }[] = [
+  {
+    id: "bootcamp",
+    label: "Bootcamp",
+    batches: [
+      { nama: "Batch 5 — Fullstack Web", deskripsi: "Dasar pemrograman web sampai deploy portofolio siap kerja.", tanggal: "09 Nov 2026 – 28 Feb 2027", lokasi: "Offline · Cibubur", jadwal: "Fulltime 09.00–18.00 WIB", batasDaftar: "26 Okt 2026" },
+      { nama: "Batch 6 — Web Malam", deskripsi: "Kelas live malam untuk yang sudah bekerja dan ingin pindah jalur.", tanggal: "07 Sep 2026 – 18 Des 2026", lokasi: "Online · Live malam", jadwal: "Fulltime 09.00–18.00 WIB", batasDaftar: "31 Agu 2026" },
+    ],
+  },
+  {
+    id: "golang",
+    label: "Golang",
+    batches: [
+      { nama: "Kelas GL-1 — Backend Go Intensif", deskripsi: "REST API, concurrency, dan deployment layanan Go ke produksi.", tanggal: "16 Nov 2026 – 22 Jan 2027", lokasi: "Offline · Cibubur", jadwal: "Fulltime 09.00–18.00 WIB", batasDaftar: "02 Nov 2026" },
+      { nama: "Kelas GL-2 — Go Microservice", deskripsi: "gRPC, observability, dan arsitektur service untuk tim backend.", tanggal: "11 Jan 2027 – 19 Mar 2027", lokasi: "Online · Live malam", jadwal: "Fulltime 09.00–18.00 WIB", batasDaftar: "28 Des 2026" },
+    ],
+  },
+  {
+    id: "java-dotnet",
+    label: "Java & .NET",
+    batches: [
+      { nama: "Kelas JV-1 — Spring Boot", deskripsi: "Backend Java enterprise: Spring, JPA, dan pengujian terotomasi.", tanggal: "23 Nov 2026 – 29 Jan 2027", lokasi: "Offline · Cibubur", jadwal: "Fulltime 09.00–18.00 WIB", batasDaftar: "09 Nov 2026" },
+      { nama: "Kelas NT-1 — ASP.NET Core", deskripsi: "Web API .NET, Entity Framework, dan deployment ke cloud.", tanggal: "18 Jan 2027 – 26 Mar 2027", lokasi: "Online · Live malam", jadwal: "Fulltime 09.00–18.00 WIB", batasDaftar: "04 Jan 2027" },
+    ],
+  },
+];
+
+// --- Landing: bulan timeline strip (Okt..Sep) ---
+export const timelineMonths = ["Okt", "Nov", "Des", "Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep"];
+
 // --- Landing: jadwal table (5 kategori tab, 7 kolom) ---
 export type JadwalKategori = "DevOps" | "Backend" | "Frontend" | "Data" | "Cloud";
 
@@ -133,14 +173,16 @@ export const faq = [
   { q: "Apa syarat ikut bootcamp?", a: "Usia minimal 18 tahun, punya laptop (pinjaman tersedia bila perlu), dan lulus tes dasar logika serta English reading sederhana. Tidak wajib punya latar belakang IT." },
   { q: "Bagaimana proses pendaftarannya?", a: "Isi formulir online, ikut tes tertulis dan wawancara singkat, lalu bayar biaya pendaftaran untuk mengunci kursi. Kuota tiap batch dibatasi agar review mentor tetap personal." },
   { q: "Bagaimana proses penyaluran kerjanya?", a: "Tim karier bantu perbaiki CV dan portofolio, latihan wawancara, lalu kirim rekomendasi ke perusahaan partner. Pendampingan berjalan sampai kamu diterima kerja, bukan berhenti saat lulus kelas." },
+  { q: "Apakah bisa diikuti sambil bekerja?", a: "Bisa. Tersedia kelas live malam dan kelas akhir pekan untuk yang sudah bekerja. Beban tugas disesuaikan, tapi tetap ditagih tiap minggu supaya progres tidak mandek." },
 ];
 
 // --- Landing: fasilitas (facility cards, accent 28px) ---
 export const fasilitas = [
   { judul: "Cicil Biaya Setelah Dapat Kerja", desc: "Mulai angsuran bulan pertama setelah gaji di atas standar. Sebelum itu, tidak ada tagihan." },
   { judul: "Asrama & Dapur Bersama", desc: "Tinggal satu atap selama batch offline biar fokus belajar, urusan makan dan tempat tinggal beres." },
-  { judul: "Pendampingan Sampai Dapat Kerja", desc: "Review CV, portofolio, dan simulasi wawancara — berjalan terus sampai kamu diterima kerja." },
   { judul: "Pinjaman Laptop Jika Dibutuhkan", desc: "Belum punya laptop? Kami pinjamkan dulu supaya tidak ada yang tertinggal di hari pertama." },
+  { judul: "Pendampingan Sampai Dapat Kerja", desc: "Review CV, portofolio, dan simulasi wawancara — berjalan terus sampai kamu diterima kerja." },
+  { judul: "Belajar dengan Tech Stack yang Sesuai Dunia Kerja", desc: "Praktik pakai Git, Docker, dan CI/CD yang benar-benar dipakai tim engineering, bukan versi yang sudah usang." },
 ];
 
 // --- Landing: Fokus Kami untuk Karirmu (feature grid) ---
@@ -163,10 +205,9 @@ export const langkah = [
 
 // --- Landing: hero meta + stat strip ---
 export const stats = [
-  { value: "120+", label: "Alumni bekerja" },
-  { value: "94%", label: "Kerja dalam 6 bulan" },
-  { value: "6", label: "Modul praktik" },
-  { value: "24/7", label: "Akses lab" },
+  { value: "100+", label: "Alumni bekerja di perusahaan terkemuka" },
+  { value: "95%", label: "Mendapat kerja dalam 6 bulan" },
+  { value: "10", label: "Perusahaan partnership lulusan" },
 ];
 
 // --- Dashboard: chart + activity ---

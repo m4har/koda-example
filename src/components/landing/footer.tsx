@@ -21,7 +21,15 @@ interface FooterProps extends React.HTMLAttributes<HTMLElement> {
   tagline?: string;
   columns?: FooterColumn[];
   /** Newsletter row; `false` hides it. */
-  newsletter?: { heading?: string; placeholder?: string; buttonLabel?: string } | false;
+  newsletter?: {
+    heading?: string;
+    /** Mono eyebrow above the input, e.g. "DAPATKAN INFO TERBARU". */
+    eyebrow?: string;
+    placeholder?: string;
+    buttonLabel?: string;
+    /** Month strip + caption, e.g. { months: ["Okt", …], text: "Dalam 1 tahun: …" }. */
+    timeline?: { months: string[]; text: string };
+  } | false;
   /** Social icons row; defaults to Instagram / LinkedIn / YouTube. */
   socials?: Social[];
 }
@@ -68,32 +76,50 @@ function Footer({
         </div>
 
         {nl ? (
-          <form
-            className="flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-end sm:justify-between"
-            onSubmit={(event) => event.preventDefault()}
-          >
-            <div className="flex flex-col gap-2">
-              <Label>{nl.heading ?? "Newsletter"}</Label>
-              <p className="max-w-md text-sm text-muted-foreground">
-                Batch dates and registration deadlines, no noise.
-              </p>
-            </div>
-            <div className="flex w-full gap-px sm:w-auto">
-              <Input
-                type="email"
-                required
-                aria-label="Email address"
-                placeholder={nl.placeholder ?? "you@example.com"}
-                className="h-10 w-full sm:w-64"
-              />
-              <Button
-                type="submit"
-                className="h-10 rounded-none bg-[#434343] text-white hover:bg-[#4f4f4f]"
-              >
-                {nl.buttonLabel ?? "Langganan"}
-              </Button>
-            </div>
-          </form>
+          <div className="flex flex-col gap-6 border-t border-border pt-6">
+            <form
+              className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"
+              onSubmit={(event) => event.preventDefault()}
+            >
+              <div className="flex flex-col gap-2">
+                {nl.eyebrow ? <Label>{nl.eyebrow}</Label> : null}
+                {nl.heading ? (
+                  <span className="font-display text-base font-semibold">{nl.heading}</span>
+                ) : null}
+              </div>
+              <div className="flex w-full gap-px sm:w-auto">
+                <Input
+                  type="email"
+                  required
+                  aria-label="Email address"
+                  placeholder={nl.placeholder ?? "you@example.com"}
+                  className="h-10 w-full sm:w-64"
+                />
+                <Button
+                  type="submit"
+                  className="h-10 rounded-none bg-[#434343] text-white hover:bg-[#4f4f4f]"
+                >
+                  {nl.buttonLabel ?? "Langganan"}
+                </Button>
+              </div>
+            </form>
+
+            {nl.timeline ? (
+              <div className="flex flex-col gap-2">
+                <div className="grid grid-cols-6 gap-px border border-border bg-border sm:grid-cols-12">
+                  {nl.timeline.months.map((month) => (
+                    <span
+                      key={month}
+                      className="bg-background px-2 py-2 text-center font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground"
+                    >
+                      {month}
+                    </span>
+                  ))}
+                </div>
+                <Label>{nl.timeline.text}</Label>
+              </div>
+            ) : null}
+          </div>
         ) : null}
 
         <div className="flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">

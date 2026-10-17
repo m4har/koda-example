@@ -64,7 +64,7 @@ function GalleryPage() {
         <AnnouncementBar>Component gallery — one section per capture</AnnouncementBar>
 
         <div className="relative pl-7">
-          <RuleRail rows={24} />
+          <RuleRail />
           <div className="sticky top-5 z-40 flex h-10 items-center justify-between border-b border-border bg-background/95 pl-4 sm:pl-8">
             <span className="font-mono text-xs font-semibold uppercase tracking-[0.1em]">Gallery</span>
             <div className="flex items-center gap-3 pr-4 sm:pr-8">
@@ -234,7 +234,7 @@ function GalleryPage() {
 
           <Frame id="rule-rail" name="rule-rail">
             <div className="relative h-48 w-16 overflow-hidden border border-border bg-background">
-              <RuleRail rows={24} />
+              <RuleRail />
             </div>
           </Frame>
 

@@ -46,7 +46,7 @@ function LandingPage() {
       </AnnouncementBar>
 
       <div className="relative flex flex-1 flex-col pl-7">
-        <RuleRail rows={420} />
+        <RuleRail />
 
         <Navbar
           brand="Koda Example"

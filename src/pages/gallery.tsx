@@ -63,7 +63,7 @@ function GalleryPage() {
       <div className="min-h-screen bg-background text-foreground">
         <AnnouncementBar>Component gallery — one section per capture</AnnouncementBar>
 
-        <div className="relative">
+        <div className="relative pl-7">
           <RuleRail rows={24} />
           <div className="sticky top-5 z-40 flex h-10 items-center justify-between border-b border-border bg-background/95 pl-4 sm:pl-8">
             <span className="font-mono text-xs font-semibold uppercase tracking-[0.1em]">Gallery</span>

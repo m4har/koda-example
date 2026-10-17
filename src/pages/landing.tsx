@@ -41,11 +41,11 @@ function LandingPage() {
   // ponytail: rows ≈ documentHeight / 20, matched to this page after build; raise it if the page grows.
   return (
     <div className="flex min-h-screen flex-col">
-      <AnnouncementBar href="/register">
+      <AnnouncementBar href="/register" className="pl-7">
         Pendaftaran Batch 5 ditutup 26 Oktober 2026 — sisa 6 slot
       </AnnouncementBar>
 
-      <div className="relative flex flex-1 flex-col">
+      <div className="relative flex flex-1 flex-col pl-7">
         <RuleRail rows={420} />
 
         <Navbar

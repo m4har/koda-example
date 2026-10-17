@@ -17,7 +17,7 @@ function StatCounter({ className, stats, ...props }: StatCounterProps) {
     <div className={cn("grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4", className)} {...props}>
       {stats.map((stat) => (
         <div key={stat.label} className="flex flex-col gap-2 bg-background p-6">
-          <span className="font-display text-4xl font-semibold tracking-tight text-primary">{stat.value}</span>
+          <span className="font-display text-[28px] font-medium leading-none tracking-tight text-primary">{stat.value}</span>
           <Label>{stat.label}</Label>
         </div>
       ))}

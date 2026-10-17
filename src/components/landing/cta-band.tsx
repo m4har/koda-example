@@ -15,7 +15,7 @@ function CtaBand({ className, eyebrow, heading, description, actions, ...props }
     <section className={cn("border-t-2 border-primary bg-muted px-4 py-16 sm:px-8", className)} {...props}>
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-5">
         {eyebrow ? <Label>{eyebrow}</Label> : null}
-        <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">{heading}</h2>
+        <h2 className="max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight sm:text-[68px]">{heading}</h2>
         {description ? <p className="max-w-xl text-sm text-muted-foreground">{description}</p> : null}
         {actions ? <div className="flex flex-wrap items-center gap-3">{actions}</div> : null}
       </div>

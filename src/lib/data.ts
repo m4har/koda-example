@@ -135,6 +135,32 @@ export const faq = [
   { q: "Bagaimana proses penyaluran kerjanya?", a: "Tim karier bantu perbaiki CV dan portofolio, latihan wawancara, lalu kirim rekomendasi ke perusahaan partner. Pendampingan berjalan sampai kamu diterima kerja, bukan berhenti saat lulus kelas." },
 ];
 
+// --- Landing: fasilitas (facility cards, accent 28px) ---
+export const fasilitas = [
+  { judul: "Cicil Biaya Setelah Dapat Kerja", desc: "Mulai angsuran bulan pertama setelah gaji di atas standar. Sebelum itu, tidak ada tagihan." },
+  { judul: "Asrama & Dapur Bersama", desc: "Tinggal satu atap selama batch offline biar fokus belajar, urusan makan dan tempat tinggal beres." },
+  { judul: "Pendampingan Sampai Dapat Kerja", desc: "Review CV, portofolio, dan simulasi wawancara — berjalan terus sampai kamu diterima kerja." },
+  { judul: "Pinjaman Laptop Jika Dibutuhkan", desc: "Belum punya laptop? Kami pinjamkan dulu supaya tidak ada yang tertinggal di hari pertama." },
+];
+
+// --- Landing: Fokus Kami untuk Karirmu (feature grid) ---
+export const fokusFeatures = [
+  { title: "Kelas Live Malam", description: "Sesi langsung bersama mentor praktisi, bukan rekaman satu arah. Tanya jawab tiap pertemuan.", icon: "terminal" },
+  { title: "Review Code Tiap Minggu", description: "Pull request kamu dibaca mentor, dapat catatan konkret yang dipakai di sprint berikutnya.", icon: "git-pull" },
+  { title: "Lab 24/7", description: "Cluster nyata untuk latihan mandiri kapan saja — dari shell sampai Kubernetes.", icon: "server" },
+  { title: "Proyek Portofolio", description: "Tiap modul ditutup proyek yang bisa dipamerkan ke rekruter, bukan toy project.", icon: "layers" },
+  { title: "Persiapan Karier", description: "CV, LinkedIn, dan mock interview — dilatih sampai kamu siap ngobrol sama hiring manager.", icon: "briefcase" },
+  { title: "Komunitas Alumni", description: "Grup aktif penuh referral kerja dari teman satu batch dan alumni sebelumnya.", icon: "users" },
+];
+
+// --- Landing: Proses Pendaftaran 4 Langkah ---
+export const langkah = [
+  { judul: "Isi Formulir Online", desc: "Data diri dan motivasi singkat, lima menit selesai." },
+  { judul: "Tes Tertulis & Wawancara", desc: "Tes logika dasar dan English reading, lalu ngobrol singkat sama tim." },
+  { judul: "Bayar Biaya Pendaftaran", desc: "Kunci kursimu — kuota tiap batch dibatasi." },
+  { judul: "Kelas Dimulai", desc: "Akses lab, grup batch, dan jadwal live terkirim sebelum hari pertama." },
+];
+
 // --- Landing: hero meta + stat strip ---
 export const stats = [
   { value: "120+", label: "Alumni bekerja" },

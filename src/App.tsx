@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LandingPage } from "@/pages/landing";
+import { GalleryPage } from "@/pages/gallery";
 import { RegisterPage } from "@/pages/register";
 import { LoginPage } from "@/pages/login";
 import { DashboardLayout } from "@/pages/dashboard/layout";
@@ -10,6 +11,7 @@ import { StudentsProvider } from "@/lib/students-store";
 
 const router = createBrowserRouter([
   { path: "/", element: <LandingPage /> },
+  { path: "/gallery", element: <GalleryPage /> },
   { path: "/register", element: <RegisterPage /> },
   { path: "/login", element: <LoginPage /> },
   {

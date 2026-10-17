@@ -19,7 +19,7 @@ function SectionFrame({ className, eyebrow, heading, description, as = "section"
         {(eyebrow || heading) && (
           <div className="flex flex-col gap-3">
             {eyebrow ? <Label>{eyebrow}</Label> : null}
-            {heading ? <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">{heading}</h2> : null}
+            {heading ? <h2 className="max-w-2xl font-display text-3xl font-medium leading-[1.1] tracking-tight sm:text-[48px]">{heading}</h2> : null}
             {description ? <p className="max-w-xl text-sm text-muted-foreground">{description}</p> : null}
           </div>
         )}

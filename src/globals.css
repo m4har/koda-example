@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * koda-ui tokens — extracted from kodacademy.id live CSS (frequency-counted hex).
+ * Brand names kept visible: --accent-brand #FE5F21 (#FF5F22 same orange),
+ * --ink #0A0A0A, --surface-dark #161616, --shell #090909.
+ * Identity: sharp corners (reference has no radius var), hairline borders,
+ * mono HUD micro-labels, traffic-light dot accent (#F2433E/#FCBB40/#34C648).
+ */
+
+:root {
+  /* light */
+  --background: #ffffff; /* #fff */
+  --foreground: #0a0a0a; /* --ink */
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #fe5f21; /* --accent-brand */
+  --primary-foreground: #0a0a0a;
+  --secondary: #f1f1f1;
+  --secondary-foreground: #0a0a0a;
+  --muted: #f5f5f5;
+  --muted-foreground: #666666;
+  --accent-soft: #f1f1f1;
+  --destructive: #f2433e;
+  --destructive-foreground: #ffffff;
+  --border: #dddddd;
+  --input: #cdcdcd;
+  --ring: #fe5f21;
+  --success: #35d49c;
+  --warning: #fcbb40;
+  --info: #1d64ff;
+  --radius: 0rem; /* sharp corners are the identity */
+  --font-display: "Plus Jakarta Sans", "Zalando Sans", ui-sans-serif, sans-serif;
+  --font-body: "Inter", ui-sans-serif, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+.dark {
+  /* dark */
+  --background: #090909; /* --shell */
+  --foreground: #fafafa;
+  --card: #161616; /* --surface-dark */
+  --card-foreground: #fafafa;
+  --popover: #161616;
+  --popover-foreground: #fafafa;
+  --primary: #fe5f21; /* --accent-brand */
+  --primary-foreground: #0a0a0a;
+  --secondary: #161616;
+  --secondary-foreground: #fafafa;
+  --muted: #121212;
+  --muted-foreground: #afafaf;
+  --accent-soft: #1d1d1d;
+  --destructive: #f2433e;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a2a; /* --line */
+  --input: #323232;
+  --ring: #fe5f21;
+  --success: #35d49c;
+  --warning: #fcbb40;
+  --info: #1d64ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent-soft);
+  --color-accent-foreground: var(--foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  --animate-spinner: spinner 0.7s linear infinite;
+}
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+}

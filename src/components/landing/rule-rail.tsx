@@ -16,7 +16,10 @@ function RuleRail({ rows = 333, className, ...props }: RuleRailProps) {
   return (
     <div
       aria-hidden
-      className={cn("absolute left-0 top-0 z-30 flex w-7 flex-col gap-px overflow-hidden", className)}
+      className={cn(
+        "absolute left-0 top-0 z-30 hidden w-7 flex-col gap-px overflow-hidden lg:flex",
+        className,
+      )}
       {...props}
     >
       {Array.from({ length: rows }, (_, i) => (
